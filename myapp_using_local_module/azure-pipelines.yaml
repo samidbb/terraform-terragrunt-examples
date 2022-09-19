@@ -38,7 +38,8 @@ stages:
     container: prime_pipeline_container
     steps:
     - script: |
-        terragrunt plan --terragrunt-working-dir infrastructure/environments/dev --terragrunt-source-update --terragrunt-non-interactive -input=false
+        pwd
+        terragrunt plan --terragrunt-working-dir app/infrastructure/environments/dev --terragrunt-source-update --terragrunt-non-interactive -input=false
         # terragrunt apply-all --terragrunt-source-update --terragrunt-non-interactive -input=false -auto-approve
       displayName: Terragrunt Apply
   - job: terraform_prod_plan
@@ -46,7 +47,8 @@ stages:
     container: prime_pipeline_container
     steps:
     - script: |
-        terragrunt plan --terragrunt-working-dir infrastructure/environments/prod --terragrunt-source-update --terragrunt-non-interactive -input=false
+        pwd
+        terragrunt plan --terragrunt-working-dir app/infrastructure/environments/prod --terragrunt-source-update --terragrunt-non-interactive -input=false
       displayName: Terragrunt Plan
 
 
